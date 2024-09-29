@@ -25,6 +25,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     _model.promptTextController ??= TextEditingController(text: '0');
     _model.promptFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -47,16 +49,34 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             padding: const EdgeInsets.all(24.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Align(
+                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/colleens-to-do-app-high-resolution-logo.png',
+                      width: 120.0,
+                      height: 90.0,
+                      fit: BoxFit.cover,
+                      alignment: const Alignment(-1.0, -1.0),
+                    ),
+                  ),
+                ),
+                Align(
                   alignment: const AlignmentDirectional(0.0, 0.0),
-                  child: Text(
-                    'Grade Calculator',
-                    style: FlutterFlowTheme.of(context).headlineLarge.override(
-                          fontFamily: 'Inter Tight',
-                          letterSpacing: 0.0,
-                        ),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 150.0, 0.0, 0.0),
+                    child: Text(
+                      'Grade Calculator',
+                      style:
+                          FlutterFlowTheme.of(context).headlineLarge.override(
+                                fontFamily: 'Inter Tight',
+                                letterSpacing: 0.0,
+                              ),
+                    ),
                   ),
                 ),
                 Align(
